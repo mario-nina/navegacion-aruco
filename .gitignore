@@ -216,3 +216,18 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ── Proyecto: navegacion-aruco ───────────────────────────────────────────────
+
+# VS Code
+.vscode/
+
+# Calibración de cámara (archivo binario generado, no se versiona)
+config/camera_calibration.npz
+calibration/images/
+
+# Variables de entorno locales
+.env.local
+
+# Archivos temporales de la Pi
+/tmp/
