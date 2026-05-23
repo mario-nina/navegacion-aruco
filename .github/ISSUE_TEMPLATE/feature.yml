@@ -1,0 +1,60 @@
+name: "Nueva Feature"
+description: Proponer o registrar una nueva funcionalidad
+labels: ["type: feature"]
+
+body:
+  - type: dropdown
+    id: module
+    attributes:
+      label: Módulo
+      description: ¿A qué parte del proyecto pertenece?
+      options:
+        - vision
+        - control
+        - navegacion
+        - calibracion
+        - infra
+        - docs
+    validations:
+      required: true
+
+  - type: dropdown
+    id: milestone
+    attributes:
+      label: Milestone
+      options:
+        - "M0 — Infraestructura"
+        - "M1 — Visión: Calibración y Detección"
+        - "M2 — Visión: Pose y Validación"
+        - "M3 — Control: Motores y PID"
+        - "M4 — Integración y Navegación"
+        - "M5 — Demo"
+        - "M6 — Alcance Extendido"
+    validations:
+      required: true
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objetivo
+      description: ¿Qué debe hacer esta feature?
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Criterios de aceptación
+      value: |
+        - [ ] Criterio 1
+        - [ ] Criterio 2
+        - [ ] Tests pasan
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: hardware
+    attributes:
+      label: Requiere hardware
+      options:
+        - label: Esta feature requiere la Raspberry Pi conectada para probarse

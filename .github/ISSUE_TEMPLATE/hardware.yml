@@ -1,0 +1,53 @@
+name: "Hardware Test"
+description: Registrar una prueba que requiere la Raspberry Pi conectada
+labels: ["type: test", "needs: hardware"]
+
+body:
+  - type: dropdown
+    id: module
+    attributes:
+      label: Módulo bajo prueba
+      options:
+        - "vision — camara"
+        - "vision — deteccion ArUco"
+        - "vision — estimacion de pose"
+        - "control — motor driver"
+        - "control — PID"
+        - "navegacion — sistema completo"
+    validations:
+      required: true
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objetivo de la prueba
+      description: ¿Qué se está validando exactamente?
+    validations:
+      required: true
+
+  - type: textarea
+    id: procedure
+    attributes:
+      label: Procedimiento
+      value: |
+        1. Conectar via SSH: ssh malber@marionina.local
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Criterios de éxito
+      value: |
+        - [ ] Criterio 1
+        - [ ] Criterio 2
+    validations:
+      required: true
+
+  - type: textarea
+    id: results
+    attributes:
+      label: Resultados (completar después de ejecutar)
+      description: Output real, mediciones u observaciones.

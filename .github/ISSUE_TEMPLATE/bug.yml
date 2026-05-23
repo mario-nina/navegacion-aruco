@@ -1,0 +1,61 @@
+name: "Bug Report"
+description: Algo no funciona correctamente
+labels: ["type: bug"]
+
+body:
+  - type: dropdown
+    id: module
+    attributes:
+      label: Módulo
+      options:
+        - vision
+        - control
+        - navegacion
+        - calibracion
+        - infra
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: ¿Qué ocurrió?
+      description: Descripción clara del problema.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamiento esperado
+      description: ¿Qué debería haber pasado?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos para reproducirlo
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Entorno
+      value: |
+        - Dispositivo: [ Laptop | Raspberry Pi 3B ]
+        - OS:
+        - Python:
+        - OpenCV:
+        - Rama/commit:
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs relevantes
+      render: shell

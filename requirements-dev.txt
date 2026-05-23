@@ -1,0 +1,9 @@
+# Dependencias de desarrollo — solo laptop, NO instalar en la Pi
+
+-r requirements.txt
+
+pytest>=8.0
+pytest-cov>=5.0
+ruff>=0.4
+pre-commit>=3.7
+python-dotenv>=1.0
