@@ -12,7 +12,7 @@ import cv2
 import numpy as np
 import pytest
 
-from navegacion_aruco.vision.camara import Camara, ErrorCamara
+from navegacion_aruco.vision.camara import Camara
 
 pytestmark = pytest.mark.hardware
 
