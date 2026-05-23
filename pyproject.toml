@@ -7,4 +7,3 @@ name            = "navegacion-aruco"
 version         = "0.0.0"
 description     = "Robot móvil autónomo con navegación por marcadores ArUco y OpenCV en Raspberry Pi 3B"
 requires-python = ">=3.11"
-
