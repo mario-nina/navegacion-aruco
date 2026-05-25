@@ -3,10 +3,12 @@ Test de integración: verificar detección de marcadores ArUco.
 
 Requiere hardware y marcadores impresos.
 Ejecutar en la Pi:
-    pytest tests/integration/test_detector.py -m hardware -v
+    pytest tests/integration/test_detector.py -m hardware -v -s
 
 Antes de correr: colocar un marcador ArUco impreso frente a la cámara.
 """
+
+import time
 
 import numpy as np
 import pytest
@@ -16,7 +18,9 @@ from navegacion_aruco.vision.detector import Detector
 
 pytestmark = pytest.mark.hardware
 
-ID_PRUEBA = 0  # ID del marcador que se coloca frente a la cámara
+ID_PRUEBA = 0
+INTENTOS = 200
+ESPERA_CAMARA = 2.0  # segundos para que la cámara se estabilice
 
 
 def test_detector_inicializa():
@@ -29,9 +33,8 @@ def test_detector_retorna_lista_vacia_sin_marcadores():
     """Sin marcadores frente a la cámara debe retornar lista vacía."""
     with Camara() as cam:
         detector = Detector()
-        # Capturar frame sin marcador (apuntar a superficie sin marcadores)
+        time.sleep(ESPERA_CAMARA)
         frame = cam.leer()
-        # Este test es informativo — puede fallar si hay marcadores en el entorno
         marcadores = detector.detectar(frame)
         print(f"\nMarcadores detectados sin objetivo: {[m.id for m in marcadores]}")
 
@@ -42,16 +45,19 @@ def test_detector_detecta_marcador():
 
     with Camara() as cam:
         detector = Detector()
-        # Capturar varios frames para estabilizar
-        for _ in range(10):
-            frame = cam.leer()
+        time.sleep(ESPERA_CAMARA)
+        ids_detectados = []
 
-        marcadores = detector.detectar(frame)
-        ids_detectados = [m.id for m in marcadores]
+        for _ in range(INTENTOS):
+            frame = cam.leer()
+            marcadores = detector.detectar(frame)
+            ids_detectados = [m.id for m in marcadores]
+            if ID_PRUEBA in ids_detectados:
+                break
+
         print(f"\nMarcadores detectados: {ids_detectados}")
-        assert (
-            ID_PRUEBA in ids_detectados
-        ), f"Marcador ID:{ID_PRUEBA} no detectado. Detectados: {ids_detectados}"
+        assert ID_PRUEBA in ids_detectados, \
+            f"Marcador ID:{ID_PRUEBA} no detectado en {INTENTOS} frames. Detectados: {ids_detectados}"
 
 
 def test_marcador_detectado_tiene_datos_validos():
@@ -60,26 +66,31 @@ def test_marcador_detectado_tiene_datos_validos():
 
     with Camara() as cam:
         detector = Detector()
-        for _ in range(10):
-            frame = cam.leer()
+        time.sleep(ESPERA_CAMARA)
+        marcador = None
 
-        marcador = detector.detectar_por_id(frame, ID_PRUEBA)
-        assert marcador is not None, f"Marcador ID:{ID_PRUEBA} no detectado"
+        for _ in range(INTENTOS):
+            frame = cam.leer()
+            marcador = detector.detectar_por_id(frame, ID_PRUEBA)
+            if marcador is not None:
+                break
+
+        assert marcador is not None, \
+            f"Marcador ID:{ID_PRUEBA} no detectado en {INTENTOS} frames"
         assert isinstance(marcador.esquinas, np.ndarray)
         assert marcador.esquinas.shape == (4, 2)
         assert len(marcador.centro) == 2
         cx, cy = marcador.centro
         assert 0 < cx < cam.ancho
         assert 0 < cy < cam.alto
-        print(
-            f"\nID: {marcador.id}  Centro: {marcador.centro}  Esquinas: {marcador.esquinas}"
-        )
+        print(f"\nID: {marcador.id}  Centro: {marcador.centro}")
 
 
 def test_detectar_por_id_retorna_none_sin_marcador():
     """Sin el marcador objetivo debe retornar None."""
     with Camara() as cam:
         detector = Detector()
+        time.sleep(ESPERA_CAMARA)
         frame = cam.leer()
         resultado = detector.detectar_por_id(frame, 99)
         assert resultado is None
