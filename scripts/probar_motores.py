@@ -8,7 +8,6 @@ Permite probar cada movimiento del robot de forma manual.
 """
 
 import time
-import sys
 from navegacion_aruco.control.motor_driver import MotorDriver
 
 DURACION = 1.0  # segundos por movimiento
