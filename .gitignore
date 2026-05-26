@@ -231,3 +231,10 @@ calibration/images/
 
 # Archivos temporales de la Pi
 /tmp/
+
+# Ruff cache
+.ruff_cache/
+
+# Archivos generados de calibración
+calibracion/tablero_calibracion.png
+calibracion/images/
