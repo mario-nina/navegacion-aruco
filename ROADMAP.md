@@ -13,7 +13,7 @@ Hoja de ruta completa del proyecto de navegación autónoma con marcadores ArUco
 | 4 | Estimación de pose | ⏳ Pendiente |
 | 5 | Validación con métricas reales | ⏳ Pendiente |
 | 6 | Pipeline de visión integrado | ⏳ Pendiente |
-| 7 | Driver de motores L298N | ⏳ Pendiente |
+| 7 | Driver de motores L298N | ✅ Completo |
 | 8 | Controlador PID | ⏳ Pendiente |
 | 9 | Lógica de navegación completa | ⏳ Pendiente |
 | 10 | Interfaz de comando laptop → robot | ⏳ Pendiente |
