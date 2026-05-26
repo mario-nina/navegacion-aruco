@@ -29,6 +29,10 @@ sudo apt-get install -y -qq \
     git \
     tmux
 
+echo "Habilitando pigpiod..."
+sudo systemctl enable pigpiod
+sudo systemctl start pigpiod
+
 # ── Entorno virtual Python ────────────────────────────────────────────────────
 echo "[3/4] Creando entorno virtual..."
 cd "$REPO_DIR"
