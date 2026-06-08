@@ -15,8 +15,8 @@ Hoja de ruta completa del proyecto de navegación autónoma con marcadores ArUco
 | 6 | Pipeline de visión integrado | ✅ Completo |
 | 7 | Driver de motores L298N | ✅ Completo |
 | 8 | Controlador PID | ⏳ Pendiente |
-| 9 | Lógica de navegación completa | ⏳ Pendiente |
-| 10 | Interfaz de comando laptop → robot | ⏳ Pendiente |
+| 9 | Lógica de navegación completa |  |
+| 10 | Interfaz de comando laptop → robot | ✅ Completo  |
 | 11 | Pruebas en ambiente controlado y ajuste PID | ⏳ Pendiente |
 | 12 | Preparación para presentación | ⏳ Pendiente |
 | 13 | Alcance extendido (condicional) | ⏳ Pendiente |
