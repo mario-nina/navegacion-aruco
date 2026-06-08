@@ -81,15 +81,15 @@ class MotorDriver:
         logger.debug("Atrás (velocidad=%.1f)", velocidad)
 
     def girar_izquierda(self, velocidad: float = 1.0) -> None:
-        """Motor derecho adelante, motor izquierdo parado."""
-        self._motor_izquierdo(adelante=True, activo=False)
+        """Motor derecho adelante, motor izquierdo atrás (giro en eje propio)."""
+        self._motor_izquierdo(adelante=False, activo=True)
         self._motor_derecho(adelante=True, activo=True)
         logger.debug("Girar izquierda (velocidad=%.1f)", velocidad)
 
     def girar_derecha(self, velocidad: float = 1.0) -> None:
-        """Motor izquierdo adelante, motor derecho parado."""
+        """Motor izquierdo adelante, motor derecho atrás (giro en eje propio)."""
         self._motor_izquierdo(adelante=True, activo=True)
-        self._motor_derecho(adelante=True, activo=False)
+        self._motor_derecho(adelante=False, activo=True)
         logger.debug("Girar derecha (velocidad=%.1f)", velocidad)
 
     def detener(self) -> None:
