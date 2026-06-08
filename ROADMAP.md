@@ -8,9 +8,9 @@ Hoja de ruta completa del proyecto de navegación autónoma con marcadores ArUco
 |---|---|---|
 | 0 | Infraestructura y GitHub | ✅ Completo |
 | 1 | Verificación de cámara | ✅ Completo |
-| 2 | Calibración de cámara | ⏸ Pendiente (requiere ambiente controlado) |
+| 2 | Calibración de cámara | ✅ Completo |
 | 3 | Detección de marcadores ArUco | ✅ Completo |
-| 4 | Estimación de pose | ⏳ Pendiente |
+| 4 | Estimación de pose | ✅ Completo |
 | 5 | Validación con métricas reales | ⏳ Pendiente |
 | 6 | Pipeline de visión integrado | ⏳ Pendiente |
 | 7 | Driver de motores L298N | ✅ Completo |
