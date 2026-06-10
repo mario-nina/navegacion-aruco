@@ -23,10 +23,10 @@ import RPi.GPIO as GPIO
 logger = logging.getLogger(__name__)
 
 # Pines GPIO
-IN1 = 17  # Motor izquierdo dirección 1
-IN2 = 18  # Motor izquierdo dirección 2
-IN3 = 22  # Motor derecho dirección 1
-IN4 = 23  # Motor derecho dirección 2
+IN1 = 22  # Motor izquierdo dirección 1
+IN2 = 23  # Motor izquierdo dirección 2
+IN3 = 17  # Motor derecho dirección 1
+IN4 = 18  # Motor derecho dirección 2
 
 
 class MotorDriver:
