@@ -22,14 +22,14 @@ import RPi.GPIO as GPIO
 logger = logging.getLogger(__name__)
 
 # Pines de dirección
-IN1 = 17
-IN2 = 18
-IN3 = 22
-IN4 = 23
+IN1 = 22
+IN2 = 23
+IN3 = 17
+IN4 = 18
 
 # Pines PWM (velocidad)
-ENA = 12
-ENB = 13
+ENA = 13
+ENB = 12
 
 FRECUENCIA_PWM = 100  # Hz
 
