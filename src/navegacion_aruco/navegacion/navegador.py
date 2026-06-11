@@ -26,20 +26,20 @@ from navegacion_aruco.vision.pipeline import Pipeline
 logger = logging.getLogger(__name__)
 
 # ── Parámetros de navegación ──────────────────────────────────────────────────
-UMBRAL_LLEGADA_CM = 15.0  # distancia para considerar que llegó
-ZONA_MUERTA_ANGULO = 5.0  # grados dentro de los cuales no corregir ángulo
-VELOCIDAD_BUSQUEDA = 0.4  # velocidad de giro durante búsqueda (0-1)
-GIROS_MAX_BUSQUEDA = 2  # vueltas máximas buscando antes de rendirse
-TIEMPO_GIRO_360 = 4.0  # segundos aproximados para girar 360°
+UMBRAL_LLEGADA_CM = 25.0  # distancia para considerar que llegó
+ZONA_MUERTA_ANGULO = 8.0  # grados dentro de los cuales no corregir ángulo
+VELOCIDAD_BUSQUEDA = 0.3  # velocidad de giro durante búsqueda (0-1)
+GIROS_MAX_BUSQUEDA = 3  # vueltas máximas buscando antes de rendirse
+TIEMPO_GIRO_360 = 5.0  # segundos aproximados para girar 360°
 
 # ── Parámetros PID iniciales ──────────────────────────────────────────────────
-PID_ANGULO_KP = 0.04
+PID_ANGULO_KP = 0.02
 PID_ANGULO_KI = 0.0
-PID_ANGULO_KD = 0.005
+PID_ANGULO_KD = 0.003
 
-PID_DISTANCIA_KP = 0.03
+PID_DISTANCIA_KP = 0.02
 PID_DISTANCIA_KI = 0.0
-PID_DISTANCIA_KD = 0.005
+PID_DISTANCIA_KD = 0.003
 
 
 class Estado(Enum):
